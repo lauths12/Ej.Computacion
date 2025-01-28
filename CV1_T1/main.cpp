@@ -1,7 +1,8 @@
 #include "C1.hpp"
 
 int main() {
-    C1 saludo;
-    saludo.Saludo("Laura Julieth Carretero Serrano");
+    C1 saludo("Laura Carretero");
+    saludo.mostrarMensaje();
+
     return 0;
 }

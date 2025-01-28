@@ -1,22 +1,17 @@
 #include <iostream>
-#include <ctime>
-#include <iomanip>
+#include <string>
+#include "Fecha.hpp"
 
 class C1 {
-public:
-    void Saludo(const std::string& nombreEstudiante) const {
-        std::string fecha = obtenerFechaActual();
-        std::cout << "Hola Mundo. Saludo de " << nombreEstudiante << " hoy " << fecha << std::endl;
-    }
-
 private:
-    // Función auxiliar para obtener la fecha actual formateada
-    std::string obtenerFechaActual() const {
-        auto t = std::time(nullptr);
-        auto tm = *std::localtime(&t);
-        std::ostringstream fechaStream;
-        fechaStream << std::put_time(&tm, "%d-%m-%Y %H:%M");
-        return fechaStream.str();
+    std::string nombre;
+public:
+    C1(const std::string& nombreEstudiante) : nombre(nombreEstudiante) {}
+
+    void mostrarMensaje() const {
+        Fecha fecha;
+        std::string fechaActual = fecha.obtenerFechaActual();
+        std::cout << "Hola Mundo. Saludo de " << nombre << " hoy " << fechaActual << " ." << std::endl;
     }
 };
 
