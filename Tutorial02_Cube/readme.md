@@ -1,11 +1,9 @@
-# Tutorial02 - Cube
+# Tutorial02 - Icosahedron
 
-This tutorial builds on top of Tutorial01 and demonstrates how to render an actual 3D object, a cube. 
+This tutorial builds on top of Tutorial01 and demonstrates how to render an actual 3D object, a Icosahedron. 
 It shows how to load shaders from files, create and use vertex, index and uniform buffers.
 
-![](Animation_Large.gif)
-
-[:arrow_forward: Run in the browser](https://diligentgraphics.github.io/wasm-modules/Tutorial02_Cube/Tutorial02_Cube.html)
+![Vídeo sin título ‐ Hecho con Clipchamp](https://github.com/user-attachments/assets/48237ab0-ead8-44f0-b7a3-0cf1758ea6ea)
 
 ## Shaders
 
@@ -185,35 +183,24 @@ struct Vertex
 };
 ```
 
-Our vertex buffer will contain 8 vertices. Every vertex will have position and color:
+Our vertex buffer will contain 12 vertices. Every vertex will have position and color:
 
 ```cpp
-//      (-1,+1,+1)________________(+1,+1,+1) 
-//               /|              /|
-//              / |             / |
-//             /  |            /  |
-//            /   |           /   |
-//(-1,-1,+1) /____|__________/(+1,-1,+1)
-//           |    |__________|____| 
-//           |   /(-1,+1,-1) |    /(+1,+1,-1)
-//           |  /            |   /
-//           | /             |  /
-//           |/              | /
-//           /_______________|/ 
-//        (-1,-1,-1)       (+1,-1,-1)
-// 
 
-Vertex CubeVerts[8] =
+Vertex CubeVerts[12] =
 {
-    {float3(-1,-1,-1), float4(1,0,0,1)},
-    {float3(-1,+1,-1), float4(0,1,0,1)},
-    {float3(+1,+1,-1), float4(0,0,1,1)},
-    {float3(+1,-1,-1), float4(1,1,1,1)},
-
-    {float3(-1,-1,+1), float4(1,1,0,1)},
-    {float3(-1,+1,+1), float4(0,1,1,1)},
-    {float3(+1,+1,+1), float4(1,0,1,1)},
-    {float3(+1,-1,+1), float4(0.2f,0.2f,0.2f,1)},
+    {float3{-0.525731112119133606f, 0.0f, 0.850650808352039932f}, float4{1, 0, 0, 1}},    // V0
+    {float3{0.525731112119133606f, 0.0f, 0.850650808352039932f}, float4{0, 1, 0, 1}},     // V1
+    {float3{-0.525731112119133606f, 0.0f, -0.850650808352039932f}, float4{0, 0, 1, 1}},   // V2 
+    {float3{0.525731112119133606f, 0.0f, -0.850650808352039932f}, float4{1, 1, 0, 1}},    // V3 
+    {float3{0.0f, 0.850650808352039932f, 0.525731112119133606f}, float4{1, 0, 1, 1}},     // V4
+    {float3{0.0f, 0.850650808352039932f, -0.525731112119133606f}, float4{0, 1, 1, 1}},    // V5
+    {float3{0.0f, -0.850650808352039932f, 0.525731112119133606f}, float4{1, 0.5, 0, 1}},  // V6 
+    {float3{0.0f, -0.850650808352039932f, -0.525731112119133606f}, float4{0.5, 1, 0, 1}}, // V7 
+    {float3{0.850650808352039932f, 0.525731112119133606f, 0.0f}, float4{0, 0.5, 1, 1}},   // V8
+    {float3{-0.850650808352039932f, 0.525731112119133606f, 0.0f}, float4{1, 0, 0.5, 1}},  // V9
+    {float3{0.850650808352039932f, -0.525731112119133606f, 0.0f}, float4{0, 1, 0.5, 1}},  // V10 
+    {float3{-0.850650808352039932f, -0.525731112119133606f, 0.0f}, float4{0.5, 0, 1, 1}}  // V11 
 };
 ```
 
