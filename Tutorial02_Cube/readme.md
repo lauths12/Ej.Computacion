@@ -1,5 +1,7 @@
 # Tutorial02 - Icosahedron
 
+This tutorial is based on [this repository](https://github.com/DiligentGraphics/DiligentSamples/tree/master/Tutorials/Tutorial02_Cube), with modifications made to adapt it for rendering an **Icosahedron**.
+
 This tutorial builds on top of Tutorial01 and demonstrates how to render an actual 3D object, a Icosahedron. 
 It shows how to load shaders from files, create and use vertex, index and uniform buffers.
 
