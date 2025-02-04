@@ -81,7 +81,7 @@ PSOCreateInfo.GraphicsPipeline.DepthStencilDesc.DepthEnable = True;
 Also, we will enable back-face culling:
 
 ```cpp
-PSOCreateInfo.GraphicsPipeline.RasterizerDesc.CullMode = CULL_MODE_BACK;
+PSOCreateInfo.GraphicsPipeline.RasterizerDesc.FillMode = FILL_MODE_WIREFRAME;
 ```
 
 In this tutorial, we create shaders from files rather than from the source code strings. Diligent Engine
